@@ -1,75 +1,141 @@
-# zScript Interpreter
+ZScript++ – A Scalable Programming Language
 
-A simple beginner-friendly programming language called **zScript** implemented in Python.
+ZScript++ is a modular, beginner-friendly programming language implemented in Python with a Lexer → Parser → AST → Interpreter architecture, designed for scalability and easy contribution.
 
-## Features
-- Python-like syntax (beginner-friendly)
-- Commands:
-  - `print("Hello")` – prints text or evaluated expressions
-  - `input("Enter:")` – takes user input
-  - `global x = 10` – declare a global variable
-  - `local y = 5` – declare a local variable
-- Arithmetic operations: `+`, `-`, `*`, `/`, `^` (for exponentiation)
-- Comments: `// comment`
-- Functions:
-  ```
-  function greet():
-      print("Hello")
-  ```
-- Infinite loop:
-  ```
-  forever:
-      print("Running")
-  ```
-- Error handling with colored output (uses Colorama):
-  - Red error messages with line number and error type
+Features
 
-## Requirements
-- Python 3.8+
-- Install Colorama:
-```
-pip install colorama
-```
+✅ Python-like syntax (easy for beginners)
+✅ Modular architecture – Lexer, Parser, AST, Interpreter in separate files
+✅ Core language constructs:
 
-## How to Run
-1. Save the interpreter as `zscript.py`.
-2. Create a `.zs` file (example: `test.zs`) with your zScript code.
-3. Run:
-```
-python zscript.py test.zs
-```
+Variables: let x = 10
 
-## Example Program (`test.zs`)
-```
+Print & Input:
+
+print("Hello")
+name = input("Enter your name: ")
+
+
+Arithmetic & Boolean ops: + - * / ^, and or not
+
+Conditionals:
+
+if x > 5:
+    print("Big")
+else:
+    print("Small")
+
+
+Loops:
+
+while x < 10:
+    x = x + 1
+
+
+Functions:
+
+function greet(name):
+    print("Hello " + name)
+greet("ZScript")
+
+
+✅ Error Handling with descriptive messages & line numbers
+✅ REPL & File Execution modes
+✅ Easily extendable for future features (lists, dictionaries, classes, modules)
+
+Architecture
+zscript/
+│
+├── main.py           # Entry point (CLI / REPL)
+├── lexer.py          # Tokenizer
+├── parser.py         # AST Builder
+├── interpreter.py    # Executes the AST
+├── tokens.py         # Token definitions
+├── nodes.py          # AST Node classes
+├── errors.py         # Error handling
+└── README.md         # Documentation
+
+Installation
+
+Requires Python 3.8+
+Clone the repo:
+
+git clone https://github.com/yourusername/zscript.git
+cd zscript
+
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+
+(Currently uses Colorama for colored output.)
+
+How to Run
+
+Run a script:
+
+python main.py examples/hello.zs
+
+
+Start REPL:
+
+python main.py
+
+Example Program
 // This is a comment
-global x = 10
-local y = 5
-print(x + y)
+let x = 5
+let y = 10
 
-function greet():
-    print("Welcome to zScript!")
+if x < y:
+    print("x is smaller")
 
-greet()
+function add(a, b):
+    return a + b
 
-forever:
-    print("Looping...")
-```
+print(add(x, y))
 
-## Error System
-- If an invalid line is found, zScript shows:
-```
-Error in line X: <code> (ErrorType)
-```
+while x < 10:
+    x = x + 1
+    print(x)
 
-## License
-Licensed under the **Apache License 2.0**. See [LICENSE](LICENSE) for details.
+Error System
 
-## Future Improvements
-- Add conditionals (`if`, `else`)
-- Add `return` in functions
-- Add file I/O
-- Add REPL mode
+ZScript++ reports errors with type, message, and line number:
 
----
-Enjoy coding with **zScript**!
+[Error: SyntaxError] Unexpected token 'end' at line 4
 
+Roadmap
+
+✅ v1: Core syntax, loops, conditionals, functions
+
+🔜 v2: Strings, lists, dictionaries, built-in functions
+
+🔜 v3: Comments, file I/O, modules, REPL enhancements
+
+🔜 Future: JIT compilation, multi-threading support
+
+Contributing
+
+Fork the repo
+
+Create a new branch:
+
+git checkout -b feature-new
+
+
+Commit changes and push:
+
+git push origin feature-new
+
+
+Open a Pull Request
+
+License
+
+Licensed under Apache 2.0. See LICENSE
+ for details.
+
+✅ TL;DR:
+
+ZScript++ = Simple syntax + Scalable architecture + Future-ready language.
