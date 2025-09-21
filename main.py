@@ -24,4 +24,4 @@ if __name__ == "__main__":
         except FileNotFoundError:
             print(colorama.Fore.RED + f"No such file found: {argv[1]}", end = "")
     except Exception as error:
-        print(colorama.Fore.RED + f"Unexpected error: {error}")
+        print(colorama.Fore.RED + f"Unexpected error: {error}\n")
