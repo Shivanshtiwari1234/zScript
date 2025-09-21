@@ -22,6 +22,6 @@ if __name__ == "__main__":
             with open(str(f"{getcwd()}\\{argv[1]}")) as f:
                 code = f.read()
         except FileNotFoundError:
-            print(colorama.Fore.RED + f"No such file found: {argv[1]}", end = "")
+            print(colorama.Fore.RED + f"No such file found: {argv[1]}\n")
     except Exception as error:
         print(colorama.Fore.RED + f"Unexpected error: {error}\n")
