@@ -3,5 +3,4 @@
 cd dist
 main.exe %1
 
-pause
-exit
+echo [Program finnished]
